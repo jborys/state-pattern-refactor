@@ -7,23 +7,30 @@ public class GarageDoor {
 	public static final String CLOSED = "Closed";
 	public static final String OPEN = "Open";
 	private String currentState = CLOSED;
-	private String resumeState;
+	String resumeState;
 	
-	DoorState state;
+	DoorState state = new ClosedState();
+
+	public void setState(DoorState state) {
+		this.state = state;
+	}
 
 	public void click() {
 		if (CLOSED.equals(currentState)) {
-			setCurrentState(OPENING);
+			state = new ClosedState();
+			state.click(this);
 		} else if (OPENING.equals(currentState)) {
-			resumeState = CLOSING;
-			setCurrentState(STOPPED);
+			state = new OpeningState();
+			state.click(this);
 		} else if (CLOSING.equals(currentState)) {
-			resumeState = OPENING;
-			setCurrentState(STOPPED);
+			state = new ClosingState();
+			state.click(this);
 		} else if (STOPPED.equals(currentState)) {
-			setCurrentState(resumeState);
+			state = new StoppedState();
+			state.click(this);
 		} else {
-			setCurrentState(CLOSING);
+			state = new OpenState();
+			state.click(this);
 		}
 	}
 
