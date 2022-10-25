@@ -1,2 +1,3 @@
 # state-pattern-refactor
-this is from Mike Rieser's State Pattern, Garage Door Exercise.
+This is from Mike Rieser's State Pattern, Garage Door Exercise.
+Thank you, Mike!
