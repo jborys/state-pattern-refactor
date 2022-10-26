@@ -6,7 +6,7 @@ public class GarageDoor {
 	public static final String STOPPED = "Stopped";
 	public static final String CLOSED = "Closed";
 	public static final String OPEN = "Open";
-	private String currentState = CLOSED;
+	private String stateString = CLOSED;
 	String resumeState;
 	
 	DoorState state = new ClosedState();
@@ -16,37 +16,18 @@ public class GarageDoor {
 	}
 
 	public void click() {
-		if (CLOSED.equals(currentState)) {
-			state = new ClosedState();
-			state.click(this);
-		} else if (OPENING.equals(currentState)) {
-			state = new OpeningState();
-			state.click(this);
-		} else if (CLOSING.equals(currentState)) {
-			state = new ClosingState();
-			state.click(this);
-		} else if (STOPPED.equals(currentState)) {
-			state = new StoppedState();
-			state.click(this);
-		} else {
-			state = new OpenState();
-			state.click(this);
-		}
+		state.click(this);
 	}
 
-	void setCurrentState(String string) {
-		currentState = string;
+	void setStateString(String string) {
+		stateString = string;
 	}
 
-	public String getCurrentState() {
-		return currentState;
+	public String getStateString() {
+		return stateString;
 	}
 
 	public void sensor() {
-		if (OPENING.equals(currentState)) {
-			setCurrentState(OPEN);
-		} else {
-			setCurrentState(CLOSED);
-		}
+		state.sensor(this);
 	}
 }

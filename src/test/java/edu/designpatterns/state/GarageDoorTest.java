@@ -89,7 +89,7 @@ public class GarageDoorTest {
 	}
 	
 	private void assertDoorMessage(String expected) {
-		assertThat(garageDoor.getCurrentState()).isEqualTo(expected);
+		assertThat(garageDoor.getStateString()).isEqualTo(expected);
 	}
 
 }
