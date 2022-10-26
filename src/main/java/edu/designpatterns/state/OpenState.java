@@ -18,6 +18,5 @@ public class OpenState extends DoorState {
 
     @Override
     void getCurrentState() {
-
     }
 }
