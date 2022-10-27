@@ -1,7 +1,6 @@
 package edu.designpatterns.state;
 
 import static edu.designpatterns.state.GarageDoor.CLOSED;
-import static edu.designpatterns.state.GarageDoor.OPENING;
 
 public class ClosedState extends DoorState {
     @Override

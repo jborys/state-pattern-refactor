@@ -1,13 +1,11 @@
 package edu.designpatterns.state;
 
-import static edu.designpatterns.state.GarageDoor.*;
+import static edu.designpatterns.state.GarageDoor.OPENING;
 
 class OpeningState extends DoorState {
     @Override
     void click(GarageDoor garageDoor) {
-        garageDoor.setState(new StoppedState());
-        //old code
-        garageDoor.resumeState = CLOSING;
+        garageDoor.setState(new StoppedOpening());
     }
 
     @Override

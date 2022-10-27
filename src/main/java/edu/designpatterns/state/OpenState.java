@@ -1,6 +1,5 @@
 package edu.designpatterns.state;
 
-import static edu.designpatterns.state.GarageDoor.CLOSING;
 import static edu.designpatterns.state.GarageDoor.OPEN;
 
 class OpenState extends DoorState {

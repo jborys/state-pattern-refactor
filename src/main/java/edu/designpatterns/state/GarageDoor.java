@@ -6,9 +6,7 @@ public class GarageDoor {
 	public static final String STOPPED = "Stopped";
 	public static final String CLOSED = "Closed";
 	public static final String OPEN = "Open";
-	private String stateString = CLOSED;
-	String resumeState;
-	
+
 	DoorState state = new ClosedState();
 
 	public void setState(DoorState state) {
