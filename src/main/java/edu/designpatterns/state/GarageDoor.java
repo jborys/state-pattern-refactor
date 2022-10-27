@@ -19,12 +19,8 @@ public class GarageDoor {
 		state.click(this);
 	}
 
-	void setStateString(String string) {
-		stateString = string;
-	}
-
 	public String getStateString() {
-		return stateString;
+		return state.getCurrentState();
 	}
 
 	public void sensor() {

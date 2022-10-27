@@ -1,18 +1,16 @@
 package edu.designpatterns.state;
 
 import static edu.designpatterns.state.GarageDoor.OPENING;
+import static edu.designpatterns.state.GarageDoor.STOPPED;
 
-public class StoppedState extends DoorState {
+class StoppedState extends DoorState {
     @Override
     void click(GarageDoor garageDoor) {
-        if(garageDoor.getStateString().equals(OPENING)) {
-            garageDoor.setState(new ClosingState());
-        } else {
+        if(garageDoor.resumeState.equals(OPENING)) {
             garageDoor.setState(new OpeningState());
+        } else {
+            garageDoor.setState(new ClosingState());
         }
-        //old code
-        garageDoor.setStateString(garageDoor.resumeState);
-
     }
 
     @Override
@@ -21,7 +19,7 @@ public class StoppedState extends DoorState {
     }
 
     @Override
-    void getCurrentState() {
-
+    String getCurrentState() {
+        return STOPPED;
     }
 }
