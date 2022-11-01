@@ -1,17 +1,8 @@
 package edu.designpatterns.state;
 
-class StoppedState extends DoorState {
+abstract class StoppedState extends DoorState {
     @Override
-    void click(GarageDoor garageDoor) {
-        garageDoor.setState(new StoppedState());
-        if (garageDoor.resumeState.equals("Opening"))   {
-            garageDoor.setState(new OpenState());
-        } else {
-            garageDoor.setState(new ClosedState());
-        }
-        //old code
-        garageDoor.setStateString(garageDoor.resumeState);
-    }
+    abstract void click(GarageDoor garageDoor);
 
     @Override
     void sensor(GarageDoor garageDoor) {
