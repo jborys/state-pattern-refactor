@@ -3,6 +3,7 @@ package edu.designpatterns.state;
 class ClosedState extends DoorState {
     @Override
     void click(GarageDoor garageDoor) {
+        garageDoor.setState(new ClosedState());
         //old code
         garageDoor.setStateString("Opening");
     }
@@ -14,6 +15,6 @@ class ClosedState extends DoorState {
 
     @Override
     String getMessageString() {
-        return null;
+        return "Closed";
     }
 }

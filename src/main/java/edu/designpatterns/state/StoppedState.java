@@ -3,6 +3,7 @@ package edu.designpatterns.state;
 class StoppedState extends DoorState {
     @Override
     void click(GarageDoor garageDoor) {
+        garageDoor.setState(new StoppedState());
         if (garageDoor.resumeState.equals("Opening"))   {
             garageDoor.setState(new OpenState());
         } else {
@@ -19,6 +20,6 @@ class StoppedState extends DoorState {
 
     @Override
     String getMessageString() {
-        return null;
+        return "Stopped";
     }
 }

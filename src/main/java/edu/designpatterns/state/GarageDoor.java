@@ -32,15 +32,10 @@ public class GarageDoor {
 	public void sensor() {
 		if ("Opening".equals(stateString)) {
 			state = new OpeningState();
-			state.sensor(this);
-			//old code
-			setStateString("Open");
 		} else {
 			state = new ClosingState();
-			state.sensor(this);
-			//old code
-			setStateString("Closed");
 		}
+		state.sensor(this);
 	}
 
 	public void setState(DoorState state) {
