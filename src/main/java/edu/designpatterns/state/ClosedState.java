@@ -1,2 +1,19 @@
-package edu.designpatterns.state;public class ClosedState {
+package edu.designpatterns.state;
+
+class ClosedState extends DoorState {
+    @Override
+    void click(GarageDoor garageDoor) {
+        //old code
+        garageDoor.setStateString("Opening");
+    }
+
+    @Override
+    void sensor(GarageDoor garageDoor) {
+
+    }
+
+    @Override
+    String getMessageString() {
+        return null;
+    }
 }
